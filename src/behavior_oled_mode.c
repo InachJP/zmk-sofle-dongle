@@ -23,8 +23,10 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
                                      struct zmk_behavior_binding_event event) {
+    LOG_INF("oled_mode pressed (position %d)", event.position);
 #if IS_ENABLED(CONFIG_SOFLE_OLED_SONIC)
     sofle_oled_mode_cycle();
+    LOG_INF("oled_mode cycle returned");
 #endif
     return ZMK_BEHAVIOR_OPAQUE;
 }
