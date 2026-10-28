@@ -65,7 +65,8 @@
     };
 
     behaviors {
-        oled_mode: oled_mode {
+        // Nombre del nodo <= 8 caracteres: el split de ZMK lo envía a las mitades en un búfer de 9 bytes
+        oled_mode: oledmode {
             compatible = "zmk,behavior-oled-mode";
             #binding-cells = <0>;
             display-name = "OLED Mode";
