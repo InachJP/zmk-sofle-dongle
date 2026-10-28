@@ -13,9 +13,3 @@ include:
     artifact-name: eyelash_sofle_right
   - board: nice_nano_v2
     shield: settings_reset
-  # Diagnóstico temporal: dongle con registro por USB (sin Studio)
-  - board: nice_nano_v2
-    shield: eyelash_sofle_central_dongle dongle_display
-    snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_LOG_LEVEL_DBG=y -DCONFIG_ZMK_SPLIT_BLE_CENTRAL_SPLIT_RUN_STACK_SIZE=2048
-    artifact-name: dongle_debug
