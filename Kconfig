@@ -1,0 +1,25 @@
+config ZMK_BEHAVIOR_OLED_MODE
+    bool
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_OLED_MODE_ENABLED
+
+config SOFLE_OLED_SONIC
+    bool "Sonic en la OLED de las mitades (periféricos con nice_oled)"
+    default y
+    depends on SHIELD_NICE_OLED && ZMK_DISPLAY && ZMK_SPLIT && !ZMK_SPLIT_ROLE_CENTRAL
+
+if SOFLE_OLED_SONIC
+
+config SOFLE_OLED_SONIC_X
+    int "Posición X de Sonic (coordenadas horizontales de LVGL: X alta = arriba de la pantalla vertical)"
+    default 17
+
+config SOFLE_OLED_SONIC_Y
+    int "Posición Y de Sonic"
+    default 0
+
+config SOFLE_OLED_SONIC_WINDOW_MS
+    int "Ventana en ms para medir el ritmo de pulsaciones"
+    default 2000
+
+endif

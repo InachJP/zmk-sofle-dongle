@@ -1,0 +1,5 @@
+description: Alterna el modo de la animación de la OLED de las mitades (Sonic / original / sin animación)
+
+compatible: "zmk,behavior-oled-mode"
+
+include: zero_param.yaml
