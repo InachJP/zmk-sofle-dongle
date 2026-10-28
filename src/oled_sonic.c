@@ -139,7 +139,6 @@ static void stop_anim(lv_obj_t *obj) {
 }
 
 static void apply_mode(void) {
-    LOG_INF("sofle_oled: apply_mode %d (sonic %p, original %p)", mode, sonic_obj, original_obj);
     if (sonic_obj == NULL) {
         return;
     }
@@ -163,14 +162,12 @@ static void apply_mode(void) {
     default: // SOFLE_OLED_MODE_OFF
         break;
     }
-    LOG_INF("sofle_oled: apply_mode done");
 }
 
 static void apply_mode_work_handler(struct k_work *work) { apply_mode(); }
 static K_WORK_DEFINE(apply_mode_work, apply_mode_work_handler);
 
 static void save_work_handler(struct k_work *work) {
-    LOG_INF("sofle_oled: saving mode %d", mode);
 #if IS_ENABLED(CONFIG_SETTINGS)
     settings_save_one("sofle_oled/mode", &mode, sizeof(mode));
 #endif
@@ -241,7 +238,6 @@ static void attach_work_handler(struct k_work *work) {
         return;
     }
 
-    LOG_INF("sofle_oled: attach canvas %p, %d children", canvas, (int)lv_obj_get_child_cnt(canvas));
     original_obj = lv_obj_get_child(canvas, 0);
     if (original_obj != NULL && !lv_obj_check_type(original_obj, &lv_animimg_class)) {
         original_obj = NULL; // estructura distinta a la esperada: no tocar nada del módulo
